@@ -1,20 +1,17 @@
 # BeagleBone cross-compilation in a Docker container.
 
-Installs the BeagleBone cross-compilation toolchain onto the [debian:wheezy Docker image](https://hub.docker.com/_/debian/).
-
-This project is available as [siana/cross-bbb-debian](https://registry.hub.docker.com/u/siana/cross-bbb-debian/) on [Docker Hub](https://hub.docker.com/).
-
+Installs the BeagleBone cross-compilation toolchain into a [debian:jessie Docker image](https://hub.docker.com/_/debian/).
+This project is available as [siana/cross-bbb-debian](https://registry.hub.docker.com/u/siana/cross-bbb-debian/) on [Docker Hub](https://hub.docker.com/) (not yet).
 Based on the work of [sdt/docker-raspberry-pi-cross-compiler](https://github.com/sdt/docker-raspberry-pi-cross-compiler), all credits for them.
 
 ## Features
 
-* the arm-linux toolchain for the Skybell target, included in this package.
+* the arm-linux-gnueabihf toolchain for the BeagleBone Black target, included in this package.
 * commands in the container are run as the calling user, so that any created files have the expected ownership (ie. not root).
 * make variables (`CC`, `LD` etc) are set to point to the appropriate tools in the container.
-* `ARCH`, `CROSS_COMPILE`, `TARGET` and `HOST` environment variables are set in the container
-* symlinks such as `bbbxc-gcc` and `bbbxc-objdump` are created in `/usr/local/bin`
+* `ARCH`, `CROSS_COMPILE` and `HOST` environment variables are set in the container
 * current directory is mounted as the container's workdir, `/build`
-* works with boot2docker on OSX
+* works with boot2docker on OSX and Windows (TBC).
 
 ## Installation
 
