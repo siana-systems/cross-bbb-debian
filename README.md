@@ -1,20 +1,17 @@
 # BeagleBone cross-compilation in a Docker container.
 
-Installs the BeagleBone cross-compilation toolchain onto the [debian:wheezy Docker image](https://hub.docker.com/_/debian/).
-
-This project is available as [siana/cross-bbb-debian](https://registry.hub.docker.com/u/siana/cross-bbb-debian/) on [Docker Hub](https://hub.docker.com/).
-
+Installs the BeagleBone cross-compilation toolchain into a [debian:jessie Docker image](https://hub.docker.com/_/debian/).
+This project is available as [siana/cross-bbb-debian](https://registry.hub.docker.com/u/siana/cross-bbb-debian/) on [Docker Hub](https://hub.docker.com/) (not yet).
 Based on the work of [sdt/docker-raspberry-pi-cross-compiler](https://github.com/sdt/docker-raspberry-pi-cross-compiler), all credits for them.
 
 ## Features
 
-* the arm-linux toolchain for the Skybell target, included in this package.
+* the arm-linux-gnueabihf toolchain for the BeagleBone Black target, included in this package.
 * commands in the container are run as the calling user, so that any created files have the expected ownership (ie. not root).
 * make variables (`CC`, `LD` etc) are set to point to the appropriate tools in the container.
-* `ARCH`, `CROSS_COMPILE`, `TARGET` and `HOST` environment variables are set in the container
-* symlinks such as `bbbxc-gcc` and `bbbxc-objdump` are created in `/usr/local/bin`
+* `ARCH`, `CROSS_COMPILE` and `HOST` environment variables are set in the container
 * current directory is mounted as the container's workdir, `/build`
-* works with boot2docker on OSX
+* works with boot2docker on OSX and Windows (TBC).
 
 ## Installation
 
@@ -85,13 +82,13 @@ This file is sourced if it exists.
 
 Default: `~/.bbbxc`
 
-### BBBXC_IMAGE / --image &lt;docker-image-name&gt;
+### BBBXC_IMAGE / --image <docker-image-name>
 
 The docker image to run.
 
 Default: siana/cross-bbb
 
-### BBBXC_ARGS / --args &lt;docker-run-args&gt;
+### BBBXC_ARGS / --args <docker-run-args>
 
 Extra arguments to pass to the `docker run` command.
 
@@ -103,7 +100,7 @@ Build the Makefile in the current directory.
 
 ---
 
-`bbbxc bbbxc-gcc -o hello ./examples/hello.c`
+`bbbxc arm-linux-gnueabihf-gcc -o hello ./examples/hello.c`
 `file hello`
 
 Standard bintools are available by adding an `bbbxc-` prefix.
