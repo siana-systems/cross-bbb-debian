@@ -15,8 +15,10 @@ cmake \
 curl \
 gawk \
 git \
+nano \
 lib32stdc++6 \
 lib32z1 \
+libtool \
 runit
 
 RUN echo 'deb http://emdebian.org/tools/debian jessie main' > /etc/apt/sources.list.d/crosstools.list && \
@@ -25,7 +27,10 @@ dpkg --add-architecture armhf && \
 apt-get update -q && \
 DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
 crossbuild-essential-armhf && \
-apt-get -q -y clean
+apt-get -q -y clean && \
+cd /usr/bin && \
+ln -s arm-linux-gnueabihf-cpp-4.9 arm-linux-gnueabihf-cpp
+# may have to fix previous link provided cpp-4.9 is other version...
 
 # Hardcode of toolchain
 ENV HOST=arm-linux-gnueabihf \
