@@ -29,7 +29,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
 crossbuild-essential-armhf && \
 apt-get -q -y clean && \
 cd /usr/bin && \
-ln -s arm-linux-gnueabihf-cpp-4.9 arm-linux-gnueabihf-cpp
+ln -s arm-linux-gnueabihf-cpp-* arm-linux-gnueabihf-cpp
 # may have to fix previous link provided cpp-4.9 is other version...
 
 # Hardcode of toolchain
