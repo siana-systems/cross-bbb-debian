@@ -1,7 +1,7 @@
 # BeagleBone cross-compilation in a Docker container.
 
 Installs the BeagleBone cross-compilation toolchain into a [debian:jessie Docker image](https://hub.docker.com/_/debian/).
-This project is available as [siana/cross-bbb-debian](https://registry.hub.docker.com/u/siana/cross-bbb-debian/) on [Docker Hub](https://hub.docker.com/) (not yet).
+This project is available as [siana/cross-bbb-debian](https://registry.hub.docker.com/u/siana/cross-bbb-debian/) on [Docker Hub](https://hub.docker.com/).
 Based on the work of [sdt/docker-raspberry-pi-cross-compiler](https://github.com/sdt/docker-raspberry-pi-cross-compiler), all credits for them.
 
 ## Features
